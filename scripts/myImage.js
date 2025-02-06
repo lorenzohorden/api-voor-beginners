@@ -1,4 +1,15 @@
+getData(myURL).then(data => {
+    let avatarURL = data.data.avatar
+    const section = document.querySelector("section:first-of-type")
 
+    if(!avatarURL){vatarURL = "http://127.0.0.1:5500/images/placeholder1.svg"}
+
+    const imgElement = document.createElement("img")
+    imgElement.src = avatarURL
+    imgElement.alt = "avatar afbeelding"
+
+    section.append(imgElement)
+})
 
 
 

@@ -4,9 +4,33 @@
 // iedereen: https://fdnd.directus.app/items/person/?fields=id,name,github_handle,avatar&filter={%22squads%22:{%22squad_id%22:{%22name%22:%22Minor%20Web%20Dev%22}}}&sort=name
 
 const baseURL = 'https://fdnd.directus.app/';
-const endpointMe = 'items/person/67';
+const endpointMe = 'items/person/213';
+
+// URL aanmaken
+const myURL = baseURL + endpointMe
+
+// data opvragen en daar vervolgens mee aan het werk gaan
+getData(myURL).then(myData => {
+	// h1 element selecteren
+	const h1 = document.querySelector("h1")
+
+	// naam opvangen uit api
+	const myName = myData.data.name
+
+	// naam in de h1 zetten
+	h1.textContent = myName
 
 
+	// bovenste section selecteren
+	const firstSection = document.querySelector("section:first-of-type")
+
+	// geboortedatum opvangen uit api
+	const birthDate = myData.data.birthdate
+
+	let p = document.createElement("p")
+	p.innerHTML = birthDate
+	firstSection.appendChild(p)
+})
 
 
 
